@@ -39,7 +39,7 @@ export default function FAQ() {
     <div
       id="faq"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center bg-[#0e0f23] px-6 md:px-12 py-16"
+      className="relative flex items-center justify-center bg-[#0e0f23] px-6 md:px-12 py-16"
     >
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/25 rounded-full blur-3xl"></div>
 

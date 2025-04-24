@@ -7,7 +7,7 @@ import Link from 'next/link';
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'Features', href: '#features' },
-  { name: 'How It Works', href: '#how-it-works' },
+  { name: 'Working', href: '#how-it-works' },
   { name: 'Testimonials', href: '#testimonials' },
   { name: 'Pricing', href: '#pricing' },
   { name: 'FAQ', href: '#faq' },
@@ -53,7 +53,7 @@ const Navbar = () => {
             ))}
             <Link
               href="/contact"
-              className="border border-purple-500/60 hover:bg-purple-700/80 text-white px-5 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              className="border border-purple-500/60 hover:bg-purple-700/80 text-white px-5 py-2 rounded-full text-sm md:text-sm font-medium transition-all duration-300 w-29"
             >
               Get Started
             </Link>

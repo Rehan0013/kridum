@@ -25,7 +25,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id='home' className="min-h-screen pt-42 md:pt-50 lg:pt-42 pb-10 bg-[#0e0f23] text-white relative overflow-hidden">
+    <section id='home' className="pt-24 md:pt-40 lg:pt-42 sm:pt-20 pb-50 bg-[#0e0f23] text-white relative overflow-hidden">
 
       <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl" />
