@@ -4,16 +4,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Features', href: '#features' },
-  { name: 'Working', href: '#how-it-works' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'FAQ', href: '#faq' },
-];
-
-const Navbar = () => {
+const Navbar = ({ navLinks }: { navLinks: { name: string; href: string }[] }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -21,7 +12,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -46,7 +36,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-white hover:font-bold transition-colors duration-300 text-sm font-medium " 
+                className="text-gray-300 hover:text-white hover:font-bold transition-colors duration-300 text-sm font-medium"
               >
                 {link.name}
               </Link>
