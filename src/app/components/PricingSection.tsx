@@ -1,0 +1,165 @@
+'use client';
+
+import { Check } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+
+const pricingPlans = [
+  {
+    name: 'Free',
+    price: 0,
+    description: 'Perfect for individuals and small projects',
+    features: [
+      'AI Assistant with basic capabilities',
+      'Limited to 100 queries per day',
+      'Email support',
+      'Basic analytics',
+      'Single user'
+    ],
+    isPopular: false,
+    buttonText: 'Start Free'
+  },
+  {
+    name: 'Professional',
+    price: 79,
+    description: 'Ideal for growing businesses and teams',
+    features: [
+      'Advanced AI capabilities',
+      'Unlimited queries',
+      'Priority support',
+      'Advanced analytics & reporting',
+      'Up to 5 team members',
+      'Custom integrations',
+      'Training & onboarding'
+    ],
+    isPopular: true,
+    buttonText: 'Get Started'
+  },
+  {
+    name: 'Enterprise',
+    price: 199,
+    description: 'For large organizations with complex needs',
+    features: [
+      'Custom AI model training',
+      'Unlimited everything',
+      'Dedicated account manager',
+      'Enterprise-grade security',
+      'Unlimited team members',
+      'API access',
+      'Custom development',
+      'SLA guarantees'
+    ],
+    isPopular: false,
+    buttonText: 'Contact Sales'
+  }
+];
+
+const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`transition-all duration-700 transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`glass p-8 rounded-xl h-full flex flex-col relative transition-all duration-300 bg-white/10 ${
+          plan.isPopular
+            ? 'border-[.7px] border-purple-500 shadow-[4px_4px_14px_#d445f53f]'
+            : 'border border-white/40'
+        } ${isHovered ? 'transform scale-105' : ''}`}
+      >
+        {plan.isPopular && (
+          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-800 to-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">
+            Most Popular
+          </div>
+        )}
+
+        <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+        <p className="text-gray-400 mb-6">{plan.description}</p>
+
+        <div className="mb-6">
+          <span className="text-3xl font-bold">${plan.price}</span>
+          <span className="text-gray-400">/month</span>
+        </div>
+
+        <ul className="space-y-3 mb-8 flex-grow">
+          {plan.features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <Check size={18} className="text-purple-600 mt-1 mr-2 shrink-0" />
+              <span className="text-gray-300">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          className={`w-full py-3 rounded-lg font-medium transition-all cursor-pointer ${
+            plan.isPopular ? 'bg-gradient-to-r from-purple-700 to-purple-500 text-white' : 'bg-white/10 text-white'
+          }`}
+        >
+          {plan.buttonText}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const PricingSection = () => {
+  return (
+    <section id="pricing" className="section-padding py-24 relative bg-[#0e0f23] px-12">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/25 rounded-full blur-3xl"></div>
+
+      <div className="container mx-auto relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 bg-clip-text text-transparent text-5xl">Flexible Princing</span>
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Choose the plan that works best for you and your team
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {pricingPlans.map((plan, index) => (
+            <PricingCard key={index} plan={plan} />
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-gray-400 mb-7">Need a custom plan for your organization?</p>
+          <Link href = "/contact" className="border-[.5px] border-white p-4 w-56 rounded-full bg-white/10 hover:bg-white/25 cursor-pointer transition-all duration-300">Contact Our Sales Team</Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PricingSection;
