@@ -84,7 +84,7 @@ const Contact = () => {
                   required
                 />
               </div>
-              <button type="submit" className="w-full bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 py-2 px-4 rounded-md text-white font-semibold transition-all ">
+              <button type="submit" className="w-full bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 py-2 px-4 rounded-md text-white font-semibold transition-all cursor-pointer">
                 Send Message
               </button>
               {submitted && (
