@@ -8,6 +8,7 @@ import PricingSection from './components/PricingSection';
 import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
+import CursorFollower from './components/CursorFollower';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -21,6 +22,7 @@ const navItems = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
+      <CursorFollower />
       <Navbar navLinks={navItems} />
       <HeroSection />
       <FeaturesSection />

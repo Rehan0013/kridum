@@ -2,6 +2,7 @@
 
 import { Check } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const pricingPlans = [
@@ -58,6 +59,7 @@ const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,16 +72,17 @@ const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
       { threshold: 0.1 }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
+    if (cardRef.current) observer.observe(cardRef.current);
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
+      if (cardRef.current) observer.unobserve(cardRef.current);
     };
   }, []);
+
+  const handleClick = () => {
+    const encodedPlan = encodeURIComponent(JSON.stringify(plan));
+    router.push(`/payment?plan=${encodedPlan}`);
+  };
 
   return (
     <div
@@ -121,6 +124,7 @@ const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
         </ul>
 
         <button
+          onClick={handleClick}
           className={`w-full py-3 rounded-lg font-medium transition-all cursor-pointer ${
             plan.isPopular ? 'bg-gradient-to-r from-purple-700 to-purple-500 text-white' : 'bg-white/10 text-white'
           }`}
@@ -139,8 +143,10 @@ const PricingSection = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 bg-clip-text text-transparent text-5xl">Flexible Princing</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 bg-clip-text text-transparent text-5xl">
+              Flexible Pricing
+            </span>
           </h2>
           <p className="text-gray-400 text-lg">
             Choose the plan that works best for you and your team
@@ -155,7 +161,12 @@ const PricingSection = () => {
 
         <div className="mt-16 text-center">
           <p className="text-gray-400 mb-7">Need a custom plan for your organization?</p>
-          <Link href = "/contact" className="border-[.5px] border-white p-4 w-56 rounded-full bg-white/10 hover:bg-white/25 cursor-pointer transition-all duration-300">Contact Our Sales Team</Link>
+          <Link
+            href="/contact"
+            className="border-[.5px] border-white p-4 w-56 rounded-full bg-white/10 hover:bg-white/25 cursor-pointer transition-all duration-300"
+          >
+            Contact Our Sales Team
+          </Link>
         </div>
       </div>
     </section>

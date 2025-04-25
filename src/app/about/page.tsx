@@ -1,6 +1,7 @@
 import About from "../components/About";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import CursorFollower from "../components/CursorFollower";
 
 const navItems = [
     { name: 'Home', href: '/' },
@@ -14,6 +15,7 @@ const navItems = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white">
+      <CursorFollower />
       <Navbar navLinks={navItems}/>
       <About />
       <Footer />
