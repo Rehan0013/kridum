@@ -22,7 +22,7 @@ const steps = [
   {
     number: '04',
     title: 'Automate & Scale',
-    description: 'Watch as NexusAI learns, automates tasks, and scales with your business.',
+    description: 'Watch as KridumAI learns, automates tasks, and scales with your business.',
   }
 ];
 
