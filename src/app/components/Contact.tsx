@@ -141,7 +141,7 @@ const Contact = () => {
               </button>
               {submitted && (
                 <p className="text-green-400 text-center mt-2">
-                  Message sent! We'll get back to you soon.
+                  Message sent! We&apos;ll get back to you soon.
                 </p>
               )}
             </motion.form>
