@@ -1,8 +1,9 @@
 'use client';
 
 import { Check } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 
 const pricingPlans = [
@@ -57,27 +58,9 @@ const pricingPlans = [
 
 const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const router = useRouter();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) observer.observe(cardRef.current);
-
-    return () => {
-      if (cardRef.current) observer.unobserve(cardRef.current);
-    };
-  }, []);
 
   const handleClick = () => {
     const encodedPlan = encodeURIComponent(JSON.stringify(plan));
@@ -85,11 +68,11 @@ const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
   };
 
   return (
-    <div
-      ref={cardRef}
-      className={`transition-all duration-700 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
     >
       <div
         onMouseEnter={() => setIsHovered(true)}
@@ -132,7 +115,7 @@ const PricingCard = ({ plan }: { plan: typeof pricingPlans[0] }) => {
           {plan.buttonText}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
@@ -35,6 +37,20 @@ export default function FAQ() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true });
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
     <div
       id="faq"
@@ -44,25 +60,35 @@ export default function FAQ() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/25 rounded-full blur-3xl"></div>
 
       <motion.div
-        initial={{ opacity: 0, y: 70 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
         className="text-center w-full max-w-4xl z-10"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl md:text-4xl font-bold mb-6"
+        >
           <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 bg-clip-text text-transparent text-5xl">
             Frequently Asked Questions
           </span>
-        </h2>
-        <p className="text-xl text-gray-400 mb-10">Your questions answered</p>
+        </motion.h2>
+
+        <motion.p
+          variants={itemVariants}
+          className="text-xl text-gray-400 mb-10"
+        >
+          Your questions answered
+        </motion.p>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isActive = activeIndex === index;
 
             return (
-              <div
+              <motion.div
                 key={index}
+                variants={itemVariants}
                 className="bg-white/10 rounded-lg overflow-hidden transition-all duration-500"
               >
                 <button
@@ -92,7 +118,7 @@ export default function FAQ() {
                 >
                   <p className="py-2 text-white">{faq.answer}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

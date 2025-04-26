@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
   Brain,
   Cpu,
@@ -43,6 +43,20 @@ const features = [
   },
 ];
 
+// Animation variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.15,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
+
 const FeatureCard = ({
   feature,
   index,
@@ -50,46 +64,21 @@ const FeatureCard = ({
   feature: typeof features[0];
   index: number;
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true);
-          }, index * 100);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, [index]);
-
   return (
-    <div
-      ref={cardRef}
-      className={`relative glass p-6 rounded-xl transition-all duration-700 transform border-[.5px] bg-white/15 glass border-white ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }before:p-[2px] before:rounded-xl before:-z-10 z-0`}
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      custom={index}
+      className="relative glass p-6 rounded-xl border-[.5px] bg-white/15 glass border-white before:p-[2px] before:rounded-xl before:-z-10 z-0"
     >
       <div className="p-3 rounded-lg w-fit mb-4 text-purple-500 bg-purple-500/20 glass">
         {feature.icon}
       </div>
       <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
       <p className="text-gray-400">{feature.description}</p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -101,18 +90,25 @@ const FeaturesSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 bg-clip-text text-transparent text-5xl">Powerful Features</span>
+            <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 bg-clip-text text-transparent text-5xl">
+              Powerful Features
+            </span>
           </h2>
           <p className="text-gray-400 text-lg">
             Our AI assistant comes with a comprehensive set of features designed to transform your workflow
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {features.map((feature, index) => (
             <FeatureCard key={index} feature={feature} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

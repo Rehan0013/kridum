@@ -36,39 +36,55 @@ const testimonials = [
   }
 ];
 
-const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
-  <div className="glass p-8 rounded-xl h-full flex flex-col border bg-white/15">
-    <div className="flex mb-6">
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          size={18}
-          className={i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-400"}
-        />
-      ))}
-    </div>
-    <p className="text-gray-300 mb-6 flex-grow italic">&ldquo;{testimonial.content}&rdquo;</p>
-      <Image
-        src={testimonial.avatar}
-        alt={testimonial.author}
-        width={48}
-        height={48}
-        className="rounded-full mr-4"
-      />
-      <div>
-        <h4 className="font-bold">{testimonial.author}</h4>
-        <p className="text-gray-400 text-sm">{testimonial.position}</p>
+const cardVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" }); // triggers early
+
+  return (
+    <motion.div
+      ref={ref}
+      className="glass p-8 rounded-xl h-full flex flex-col border bg-white/15"
+      variants={cardVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="flex mb-6">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            size={18}
+            className={i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-400"}
+          />
+        ))}
       </div>
-    </div>
-);
+      <p className="text-gray-300 mb-6 flex-grow italic">&ldquo;{testimonial.content}&rdquo;</p>
+      <div className="flex items-center mt-4">
+        <Image
+          src={testimonial.avatar}
+          alt={testimonial.author}
+          width={48}
+          height={48}
+          className="rounded-full mr-4"
+        />
+        <div>
+          <h4 className="font-bold">{testimonial.author}</h4>
+          <p className="text-gray-400 text-sm">{testimonial.position}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonialsPerView = { mobile: 1, tablet: 2, desktop: 3 };
   const [itemsPerView, setItemsPerView] = useState(testimonialsPerView.desktop);
   const containerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
 
   useEffect(() => {
     const handleResize = () => {
@@ -102,12 +118,8 @@ const Testimonials = () => {
   }, [activeIndex, totalSlides]);
 
   return (
-    <motion.section
+    <section
       id="testimonials"
-      ref={sectionRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
       className="section-padding py-24 relative bg-[#0e0f23] px-12"
     >
       <div className="absolute top-1/4 right-0 w-72 h-72 bg-purple-700/20 rounded-full blur-3xl"></div>
@@ -125,8 +137,11 @@ const Testimonials = () => {
         </div>
 
         <div className="relative">
-          <div ref={containerRef} className="overflow-x-hidden">
-            <div className="flex transition-all duration-500" style={{ width: `${100 * (testimonials.length / itemsPerView)}%` }}>
+          <div ref={containerRef} className="overflow-x-hidden no-scrollbar">
+            <div
+              className="flex transition-all duration-500"
+              style={{ width: `${100 * (testimonials.length / itemsPerView)}%` }}
+            >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="px-4" style={{ width: `${100 / testimonials.length}%` }}>
                   <TestimonialCard testimonial={testimonial} />
@@ -156,7 +171,7 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
