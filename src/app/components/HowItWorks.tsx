@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const steps = [
   {
@@ -92,9 +93,9 @@ const HowItWorks = () => {
         </motion.div>
 
         <div className="mt-20 text-center">
-          <button className="border border-purple-500 h-12 w-44 rounded-3xl bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 hover:bg-purple-700 cursor-pointer font-bold">
+          <Link href='/#pricing' className="border border-purple-500 p-3 h-12 w-44 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 hover:bg-purple-700 cursor-pointer font-bold">
             Start Your Journey
-          </button>
+          </Link>
         </div>
       </div>
     </section>
