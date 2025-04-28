@@ -15,8 +15,14 @@ function PaymentPage() {
 
   if (!planParam) {
     return (
-      <div className="flex items-center justify-center min-h-screen text-white">
+      <div className="flex flex-col items-center justify-center min-h-screen text-white">
         No plan selected. Please go back and select a plan.
+        <button
+          onClick={() => router.back()}
+          className="mt-4 py-2 px-4 bg-purple-600 rounded-lg text-white hover:bg-purple-700 transition cursor-pointer"
+        >
+          Go Back
+        </button>
       </div>
     );
   }
