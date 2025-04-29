@@ -14,9 +14,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "KridumAI | AI-Powered Solutions",
-  icons: {
-    icon: "/AI.png",
-  },
   description: "KridumAI is your partner in AI-powered solutions, transforming your business with cutting-edge technology.",
 };
 

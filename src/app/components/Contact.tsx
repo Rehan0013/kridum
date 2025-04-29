@@ -82,7 +82,7 @@ const Contact = () => {
 
               <div className="p-4 rounded-2xl border-[0.5px] border-white/20 bg-white/10 backdrop-blur-md overflow-hidden h-[300px] flex items-center justify-center">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.015606837177!2d-122.42067928468195!3d37.77851997975966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808b71ef6c8d%3A0xf09f8a7d3189464e!2sTwitter%20HQ!5e0!3m2!1sen!2sus!4v1616450255014!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124418.53309366436!2d77.57355124999999!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4f!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1634567891234!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: "none" }}
