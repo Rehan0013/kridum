@@ -33,7 +33,14 @@ const testimonials = [
     position: "CEO, FutureTech",
     avatar: "https://randomuser.me/api/portraits/men/86.jpg",
     rating: 5
-  }
+  },
+  {
+    content: "KridumAI's customer support is top-notch. They helped us set up the platform and provided ongoing training to ensure we get the most out of it.",
+    author: "Emily Davis",
+    position: "Product Manager, NextGen Solutions",
+    avatar: "https://randomuser.me/api/portraits/women/29.jpg",
+    rating: 4
+  },
 ];
 
 const cardVariants = {
@@ -100,7 +107,7 @@ const Testimonials = () => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  });
 
   const totalSlides = Math.ceil(testimonials.length / itemsPerView);
 

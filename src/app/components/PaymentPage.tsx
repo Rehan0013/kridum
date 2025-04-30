@@ -18,8 +18,8 @@ function PaymentPage() {
       <div className="flex flex-col items-center justify-center min-h-screen text-white">
         No plan selected. Please go back and select a plan.
         <button
-          onClick={() => router.back()}
-          className="mt-4 py-2 px-4 bg-purple-600 rounded-lg text-white hover:bg-purple-700 transition cursor-pointer"
+          onClick={() => router.replace('/#pricing')}
+          className="mt-4 py-2 px-4 w-sm bg-white/10 rounded-xl text-white hover:bg-white/15 transition cursor-pointer border"
         >
           Go Back
         </button>

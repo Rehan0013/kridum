@@ -36,7 +36,7 @@ const Navbar = ({ navLinks }: { navLinks: { name: string; href: string }[] }) =>
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-white hover:font-bold transition-colors duration-300 text-sm font-medium"
+                className="text-gray-300 hover:text-purple-500 transition-colors duration-300 text-sm font-medium"
               >
                 {link.name}
               </Link>
