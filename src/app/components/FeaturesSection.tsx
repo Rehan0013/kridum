@@ -71,21 +71,21 @@ const FeatureCard = ({
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       custom={index}
-      className="relative glass p-6 rounded-xl border-[.5px] bg-white/15 glass border-white before:p-[2px] before:rounded-xl before:-z-10 z-0"
+      className="relative glass p-6 rounded-xl border-[.5px] bg-white/50 dark:bg-white/15 glass border-gray-700/15 dark:border-white before:p-[2px] before:rounded-xl before:-z-10 z-0 shadow-xl"
     >
-      <div className="p-3 rounded-lg w-fit mb-4 text-purple-500 bg-purple-500/20 glass">
+      <div className="p-3 rounded-lg w-fit mb-4 text-purple-800 dark:text-purple-500 bg-purple-500/20 glass">
         {feature.icon}
       </div>
-      <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-      <p className="text-gray-400">{feature.description}</p>
+      <h3 className="text-xl font-bold mb-2 text-[#0e0f23] dark:text-white">{feature.title}</h3>
+      <p className="text-gray-500 dark:text-gray-400">{feature.description}</p>
     </motion.div>
   );
 };
 
 const FeaturesSection = () => {
   return (
-    <section id='features' className="section-padding py-24 relative bg-[#0e0f23] px-12">
-      <div className="absolute top-1/3 left-0 w-72 h-72 bg-purple-900/50 rounded-full blur-3xl"></div>
+    <section id='features' className="section-padding py-24 relative bg-gray-300 dark:bg-[#0e0f23] text-black dark:text-white px-12">
+      <div className="absolute top-1/3 left-0 w-72 h-72 bg-purple-400 dark:bg-purple-900/50 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -94,7 +94,7 @@ const FeaturesSection = () => {
               Powerful Features
             </span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
             Our AI assistant comes with a comprehensive set of features designed to transform your workflow
           </p>
         </div>

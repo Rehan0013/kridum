@@ -55,7 +55,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
   return (
     <motion.div
       ref={ref}
-      className="glass p-8 rounded-xl h-full flex flex-col border bg-white/15"
+      className="glass p-8 rounded-xl h-full flex flex-col border bg-white/50 dark:bg-white/15"
       variants={cardVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -65,11 +65,11 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
           <Star
             key={i}
             size={18}
-            className={i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-400"}
+            className={i < testimonial.rating ? "text-yellow-500 dark:text-yellow-400 dark:fill-yellow-400 fill-yellow-500" : "text-gray-400"}
           />
         ))}
       </div>
-      <p className="text-gray-300 mb-6 flex-grow italic">&ldquo;{testimonial.content}&rdquo;</p>
+      <p className="text-gray-600 dark:text-gray-300 mb-6 flex-grow italic">&ldquo;{testimonial.content}&rdquo;</p>
       <div className="flex items-center mt-4">
         <Image
           src={testimonial.avatar}
@@ -79,8 +79,8 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
           className="rounded-full mr-4"
         />
         <div>
-          <h4 className="font-bold">{testimonial.author}</h4>
-          <p className="text-gray-400 text-sm">{testimonial.position}</p>
+          <h4 className="font-bold text-gray-950 dark:text-white">{testimonial.author}</h4>
+          <p className="dark:text-gray-400 text-gray-500 text-sm">{testimonial.position}</p>
         </div>
       </div>
     </motion.div>
@@ -127,9 +127,9 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-padding py-24 relative bg-[#0e0f23] px-12"
+      className="section-padding py-24 relative bg-gray-300 dark:bg-[#0e0f23] px-12"
     >
-      <div className="absolute top-1/4 right-0 w-72 h-72 bg-purple-700/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 right-0 w-72 h-72 bg-purple-400 dark:bg-purple-700/20 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -138,13 +138,13 @@ const Testimonials = () => {
               What Our Users Say
             </span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
             Trusted by companies and individuals worldwide
           </p>
         </div>
 
         <div className="relative">
-          <div ref={containerRef} className="overflow-x-hidden no-scrollbar">
+          <div ref={containerRef} className="overflow-x-hidden">
             <div
               className="flex transition-all duration-500"
               style={{ width: `${100 * (testimonials.length / itemsPerView)}%` }}
@@ -159,20 +159,20 @@ const Testimonials = () => {
 
           <div className="flex justify-center mt-10 gap-4">
             <button onClick={goToPrev} disabled={activeIndex === 0}
-              className="p-2 rounded-full bg-purple-900/60 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer">
+              className="p-2 rounded-full bg-purple-400 dark:bg-purple-900/60 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer">
               <ChevronLeft size={24} />
             </button>
             <div className="flex space-x-2">
               {[...Array(totalSlides)].map((_, i) => (
                 <button
                   key={i}
-                  className={`w-3 h-3 rounded-full transition-all cursor-pointer ${i === activeIndex ? 'bg-purple-900/20' : 'bg-white/20'}`}
+                  className={`w-3 h-3 rounded-full transition-all cursor-pointer ${i === activeIndex ? 'bg-purple-400 dark:bg-purple-900/20' : 'bg-white/20'}`}
                   onClick={() => setActiveIndex(i)}
                 />
               ))}
             </div>
             <button onClick={goToNext} disabled={activeIndex === totalSlides - 1}
-              className="p-2 rounded-full bg-purple-900/60 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer">
+              className="p-2 rounded-full bg-purple-400 dark:bg-purple-900/60 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer">
               <ChevronRight size={24} />
             </button>
           </div>

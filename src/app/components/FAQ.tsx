@@ -55,9 +55,9 @@ export default function FAQ() {
     <div
       id="faq"
       ref={sectionRef}
-      className="relative flex items-center justify-center bg-[#0e0f23] px-6 md:px-12 py-16"
+      className="relative flex items-center justify-center bg-gray-300 dark:bg-[#0e0f23] text-black dark:text-white px-6 md:px-12 py-16"
     >
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/25 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400 dark:bg-purple-900/50 rounded-full blur-3xl"></div>
 
       <motion.div
         variants={containerVariants}
@@ -76,7 +76,7 @@ export default function FAQ() {
 
         <motion.p
           variants={itemVariants}
-          className="text-xl text-gray-400 mb-10"
+          className="text-xl text-gray-600 dark:text-gray-400 mb-10"
         >
           Your questions answered
         </motion.p>
@@ -89,17 +89,17 @@ export default function FAQ() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white/10 rounded-lg overflow-hidden transition-all duration-500"
+                className="bg-white/50 dark:bg-white/10 rounded-lg overflow-hidden transition-all duration-500 border-[.5px] border-gray-700/15 dark:border-white/30"
               >
                 <button
-                  className="w-full flex justify-between items-center text-left p-4 rounded-lg hover:bg-white/15 transition-colors duration-300 cursor-pointer"
+                  className="w-full flex justify-between items-center text-left p-4 rounded-lg hover:bg-gray-600/10 dark:hover:bg-white/15 transition-colors duration-300 cursor-pointer"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <h2 className="text-lg font-semibold text-white">{faq.question}</h2>
+                  <h2 className="text-lg font-semibold text-black dark:text-white">{faq.question}</h2>
                   <span
                     className={`transform transition-transform duration-300 ${
                       isActive ? "rotate-45" : "rotate-0"
-                    } text-white text-2xl`}
+                    } text-black dark:text-white text-2xl`}
                   >
                     +
                   </span>
@@ -116,7 +116,7 @@ export default function FAQ() {
                   }}
                   className="transition-[max-height] duration-500 ease-in-out overflow-hidden px-4"
                 >
-                  <p className="py-2 text-white">{faq.answer}</p>
+                  <p className="py-2 text-black dark:text-white">{faq.answer}</p>
                 </div>
               </motion.div>
             );

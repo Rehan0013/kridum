@@ -26,7 +26,6 @@ const steps = [
   }
 ];
 
-// Framer Motion variants
 const cardVariants = {
   hidden: { opacity: 0, x: -30 },
   visible: (index: number) => ({
@@ -50,10 +49,10 @@ const StepCard = ({ step, index }: { step: typeof steps[0], index: number }) => 
       custom={index}
       className="relative"
     >
-      <div className="glass p-6 rounded-xl relative z-10 border-[.2px] border-white lg:h-60 bg-white/15 glass">
-        <div className="text-4xl font-bold mb-4 opacity-80 text-purple-600">{step.number}</div>
+      <div className="glass p-6 rounded-xl relative z-10 border-[.2px] border-gray-700/15 dark:border-white lg:h-60 bg-white/50 dark:bg-white/15 glass">
+        <div className="text-4xl font-bold mb-4 opacity-80 text-purple-700 dark:text-purple-600">{step.number}</div>
         <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-        <p className="text-gray-400">{step.description}</p>
+        <p className="text-gray-500 dark:text-gray-400">{step.description}</p>
       </div>
 
       {/* Connecting line */}
@@ -66,8 +65,8 @@ const StepCard = ({ step, index }: { step: typeof steps[0], index: number }) => 
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section-padding py-24 relative px-12 bg-[#0e0f23]">
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-700/20 rounded-full blur-3xl"></div>
+    <section id="how-it-works" className="section-padding py-24 relative px-12 bg-gray-300 dark:bg-[#0e0f23] text-black dark:text-white">
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400 dark:bg-purple-700/20 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -76,7 +75,7 @@ const HowItWorks = () => {
               How It Works
             </span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
             Our streamlined process makes it easy to integrate AI into your workflow
           </p>
         </div>
@@ -93,7 +92,7 @@ const HowItWorks = () => {
         </motion.div>
 
         <div className="mt-20 text-center">
-          <Link href='/#pricing' className="border border-purple-500 p-3 h-12 w-44 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 hover:bg-purple-700 cursor-pointer font-bold">
+          <Link href='/#pricing' className="border border-purple-500 p-3 h-12 w-44 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 hover:bg-purple-700 cursor-pointer font-bold text-white">
             Start Your Journey
           </Link>
         </div>

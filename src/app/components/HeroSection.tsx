@@ -26,14 +26,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id='home' className="pt-20 md:pt-20 pb-20 bg-[#0e0f23] text-white relative overflow-hidden">
+    <section id='home' className="pt-20 md:pt-20 pb-20 bg-gray-300 dark:bg-[#0e0f23] text-black dark:text-white relative overflow-hidden lg:h-screen">
       
       {/* Background gradients */}
-      <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-400 dark:bg-purple-500/20 rounded-full blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300 dark:bg-purple-300/10 rounded-full blur-3xl" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6">
         
         {/* Left Side (Text) */}
         <motion.div
@@ -42,16 +42,16 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="w-full md:w-1/2 text-center md:text-left"
         >
-          <div className="inline-block px-6 py-2 rounded-full border border-purple-500 text-purple-300 bg-purple-500/10 mb-6 text-sm font-medium">
+          <div className="inline-block px-6 py-2 rounded-full border border-purple-500 text-purple-800 dark:text-purple-200 bg-purple-500/10 dark:bg-purple-500/20 mb-6 text-sm font-medium">
             Introducing kridum.ai
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-b from-purple-900 via-purple-600 to-red-500 bg-clip-text text-transparent mb-6 leading-snug tracking-tight">
+          <h1 className="text-6xl lg:text-7xl font-extrabold bg-gradient-to-b from-purple-900 via-purple-600 to-red-500 bg-clip-text text-transparent mb-6 leading-snug tracking-tight md:text-center lg:text-start">
             {typedText}
-            <span className="text-white font-bold animate-pulse">|</span>
+            <span className="text-black dark:text-white font-bold animate-pulse">|</span>
           </h1>
 
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto md:mx-0 mb-10">
+          <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto md:mx-0 mb-10">
             Empower your workflow with our revolutionary AI platform. Automate tasks,
             generate content, and unlock insights with state-of-the-art artificial intelligence.
           </p>
@@ -67,7 +67,7 @@ const HeroSection = () => {
 
             <Link
               href="/about"
-              className="bg-gray-800 hover:bg-gray-700 text-white font-medium border border-white/20 py-3 px-8 rounded-full transition duration-300 cursor-pointer"
+              className="bg-gray-800/20 dark:bg-gray-700 hover:bg-gray-800/25 dark:hover:bg-gray-600 text-black dark:text-white font-medium border border-gray-900/20 dark:border-gray-700 py-3 px-8 rounded-full transition duration-300 cursor-pointer"
             >
               Learn More
             </Link>
@@ -100,8 +100,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center p-1">
-          <div className="w-1 h-2 bg-white/50 rounded-full" />
+        <div className="w-6 h-10 rounded-full border-2 border-gray-900/30 dark:border-white/20 flex justify-center p-1">
+          <div className="w-1 h-2 bg-gray-900/50 dark:bg-white/40 rounded-full" />
         </div>
       </div>
     </section>

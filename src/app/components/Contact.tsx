@@ -35,9 +35,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0e0f23] text-white overflow-hidden">
-      <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"></div>
+    <div className="relative min-h-screen bg-gray-300 dark:bg-[#0e0f23] text-black dark:text-white overflow-hidden">
+      <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-400 dark:bg-purple-500/30 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300 dark:bg-purple-300/20 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-6 py-24">
         <div className="max-w-7xl mx-auto">
@@ -62,7 +62,7 @@ const Contact = () => {
           >
 
             <motion.div className="flex flex-col gap-8" variants={itemVariants}>
-              <div className="p-8 rounded-2xl border-[0.5px] border-white/20 bg-white/10 backdrop-blur-md">
+              <div className="p-8 rounded-2xl border-[0.5px] border-gray-900/20 dark:border-white/20 bg-gray-100 dark:bg-white/10 backdrop-blur-md">
                 <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
@@ -80,7 +80,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl border-[0.5px] border-white/20 bg-white/10 backdrop-blur-md overflow-hidden h-[300px] flex items-center justify-center">
+              <div className="p-4 rounded-2xl border-[0.5px] border-gray-900/20 dark:border-white/20 bg-gray-100 dark:bg-white/10 backdrop-blur-md overflow-hidden h-[300px] flex items-center justify-center">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124418.53309366436!2d77.57355124999999!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4f!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1634567891234!5m2!1sen!2sin"
                   width="100%"
@@ -95,7 +95,7 @@ const Contact = () => {
 
             <motion.form
               onSubmit={handleSubmit}
-              className="p-8 rounded-2xl space-y-6 bg-white/10 border-[.5px] border-white/20 backdrop-blur-md"
+              className="p-8 rounded-2xl space-y-6 bg-gray-100 dark:bg-white/10 border-[.5px] border-gray-900/20 dark:border-white/20 backdrop-blur-md"
               variants={itemVariants}
             >
               <div className="space-y-2">
@@ -104,7 +104,7 @@ const Contact = () => {
                   id="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full rounded-md bg-black/60 px-3 py-2 text-sm text-white font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full rounded-md bg-gray-200 dark:bg-black/60 px-3 py-2 text-sm text-black dark:text-white font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Your name"
                   required
                 />
@@ -116,7 +116,7 @@ const Contact = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-md bg-black/60 px-3 py-2 text-sm text-white font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full rounded-md bg-gray-200 dark:bg-black/60 px-3 py-2 text-sm text-black dark:text-white font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="your@email.com"
                   required
                 />
@@ -128,7 +128,7 @@ const Contact = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full h-59 rounded-md bg-black/60 px-3 py-2 text-sm text-white font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full h-59 rounded-md bg-gray-200 dark:bg-black/60 px-3 py-2 text-sm text-black dark:text-white font-bold focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="Your message..."
                   required
                 />
