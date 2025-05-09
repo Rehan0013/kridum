@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import Link from "next/link";
+import {User} from "lucide-react";
 
 const Navbar = ({
   navLinks,
@@ -91,7 +92,10 @@ const Navbar = ({
           </div>
 
           {/* Dark Mode Toggle */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-3 gap-4">
+            <Link href="/login" className="text-gray-800 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300">
+              <User />
+            </Link>
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full border border-gray-700 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"

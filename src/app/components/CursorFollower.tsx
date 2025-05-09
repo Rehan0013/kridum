@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-// Utility to extract and invert RGB color
+// extract and invert RGB color
 const parseRGB = (color: string): number[] => {
   const match = color.match(/\d+/g);
   return match ? match.slice(0, 3).map(Number) : [255, 255, 255];

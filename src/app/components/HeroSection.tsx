@@ -29,8 +29,8 @@ const HeroSection = () => {
     <section id='home' className="pt-20 md:pt-20 pb-20 bg-gray-300 dark:bg-[#0e0f23] text-black dark:text-white relative overflow-hidden lg:h-screen">
       
       {/* Background gradients */}
-      <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-400 dark:bg-purple-500/20 rounded-full blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300 dark:bg-purple-300/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -right-64 w-96 h-96 bg-purple-400 dark:bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300 dark:bg-purple-300/10 rounded-full blur-3xl animate-pulse" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6">
