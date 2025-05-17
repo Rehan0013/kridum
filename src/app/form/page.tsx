@@ -158,7 +158,7 @@ export default function Home() {
                 </label>
                 <select className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-700">
                   <option>YouTube</option>
-                  <option>Article</option>
+                  <option>PDF</option>
                 </select>
               </div>
 
