@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Features', href: '#features' },
-  { name: 'Working', href: '#how-it-works' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Home', href: '/' },
+  { name: 'Features', href: '/#features' },
+  { name: 'Working', href: '/#how-it-works' },
+  { name: 'Testimonials', href: '/#testimonials' },
+  { name: 'Pricing', href: '/#pricing' },
+  { name: 'FAQ', href: '/#faq' },
 ];
 
 export default function LoginPage() {
