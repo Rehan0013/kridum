@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">AI</span>
               </div>
-              <span className="text-white font-space-grotesk font-bold text-xl">kridum.ai</span>
+              <span className="text-white font-space-grotesk font-bold text-xl">KridumAI</span>
             </div>
             <p className="text-gray-400 mb-6">
               The future of AI assistants is here. Transforming workflows, one interaction at a time.
@@ -73,7 +73,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} kridum.ai. All rights reserved.
+            © {new Date().getFullYear()} KridumAI. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link href="#" className="text-gray-500 hover:text-white text-sm">Privacy Policy</Link>

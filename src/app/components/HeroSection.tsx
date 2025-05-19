@@ -43,7 +43,7 @@ const HeroSection = () => {
           className="w-full md:w-1/2 text-center md:text-left"
         >
           <div className="inline-block px-6 py-2 rounded-full border border-purple-500 text-purple-800 dark:text-purple-200 bg-purple-500/10 dark:bg-purple-500/20 mb-6 text-sm font-medium">
-            Introducing kridum.ai
+            Introducing KridumAI
           </div>
 
           <h1 className="text-6xl lg:text-7xl font-extrabold bg-gradient-to-b from-purple-900 via-purple-600 to-red-500 bg-clip-text text-transparent mb-6 leading-snug tracking-tight md:text-center lg:text-start">

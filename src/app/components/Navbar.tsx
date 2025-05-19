@@ -69,7 +69,7 @@ const Navbar = ({
               <span className="text-white font-bold text-xl">AI</span>
             </div>
             <span className="text-black dark:text-white font-space-grotesk font-bold text-xl">
-              kridum.ai
+              KridumAI
             </span>
           </Link>
 

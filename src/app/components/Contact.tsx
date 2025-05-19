@@ -67,7 +67,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <Mail className="text-purple-600" />
-                    <p>contact@kridum.ai</p>
+                    <p>contact@KridumAI</p>
                   </div>
                   <div className="flex items-center gap-4">
                     <Phone className="text-purple-600" />
