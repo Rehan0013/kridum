@@ -46,7 +46,7 @@ const cardVariants = {
 
 export default function FeaturedGames() {
   return (
-    <section className="relative overflow-hidden w-full px-4 sm:px-6 lg:px-24 py-24 bg-gray-300 dark:bg-[#0e0f23] transition-colors duration-500">
+    <section className="relative overflow-hidden w-full px-4 sm:px-6 lg:px-24 py-24 bg-gray-300 dark:bg-[#0e0f23] transition-colors duration-500" id="featured-game">
       <div className="absolute top-1 -right-64 w-96 h-96 bg-purple-400 dark:bg-purple-500/30 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-300 dark:bg-purple-300/20 rounded-full blur-3xl"></div>
       <motion.div

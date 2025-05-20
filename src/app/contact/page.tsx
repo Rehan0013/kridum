@@ -1,7 +1,6 @@
 import Contact from "../components/Contact";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CursorFollower from "../components/CursorFollower";
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -16,7 +15,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <CursorFollower />
       <Navbar navLinks={navItems} />
       <Contact />
       <Footer />

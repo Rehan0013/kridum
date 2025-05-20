@@ -8,14 +8,11 @@ import PricingSection from './components/PricingSection';
 import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
-import CursorFollower from './components/CursorFollower';
 import FeaturedGames from './components/FeaturedGames';
 
 const navItems = [
   { name: 'Home', href: '#home' },
-  { name: 'Features', href: '#features' },
-  { name: 'Working', href: '#how-it-works' },
-  { name: 'Testimonials', href: '#testimonials' },
+  { name: 'Featured Game', href: '#featured-game' },
   { name: 'Pricing', href: '#pricing' },
   { name: 'FAQ', href: '#faq' },
 ];
@@ -23,7 +20,6 @@ const navItems = [
 export default function Home() {
   return (
     <div className="relative min-h-screen dark:bg-black text-white overflow-x-hidden">
-      <CursorFollower />
       <Navbar navLinks={navItems} />
       <HeroSection />
       <FeaturesSection />

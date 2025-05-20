@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Pencil, Eye } from "lucide-react";
 import Navbar from "../components/Navbar";
-import CursorFollower from "../components/CursorFollower";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -18,7 +17,6 @@ export default function PreviewGame() {
   return (
     <div className="relative overflow-hidden min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-900 dark:to-black transition-colors duration-300 text-gray-900 dark:text-white">
       <Navbar navLinks={navItems} />
-      <CursorFollower />
 
       {/* Decorative Background Gradient Blobs */}
       <div className="absolute -top-32 -right-64 w-[500px] h-[500px] bg-purple-400/30 dark:bg-purple-700/20 rounded-full blur-[150px] animate-pulse" />

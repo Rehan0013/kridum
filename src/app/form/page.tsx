@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import CursorFollower from "../components/CursorFollower";
 
 const cards = [
   {
@@ -84,7 +83,6 @@ export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gray-200 dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-500">
       <Navbar navLinks={navItems} />
-        <CursorFollower />
 
       {/* Background gradients */}
       <div className="absolute top-1 -right-64 w-96 h-96 bg-purple-400 dark:bg-purple-500/20 rounded-full blur-3xl" />

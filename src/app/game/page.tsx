@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Sparkles, LayoutDashboard, FileImage, Wand2 } from 'lucide-react';
-import CursorFollower from '../components/CursorFollower';
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -90,7 +89,6 @@ export default function GameGenerator() {
   return (
     <div className="min-h-screen relative overflow-hidden px-4 py-10 transition-colors duration-500 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
       <Navbar navLinks={navItems} />
-      <CursorFollower />
 
       {/* Gradient Backgrounds */}
       <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-400/30 dark:bg-purple-600/30 rounded-full blur-3xl animate-pulse" />

@@ -17,7 +17,6 @@ import {
   Rotate3D,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
-import CursorFollower from "../components/CursorFollower";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -95,7 +94,6 @@ export default function GameGenerator() {
       <div className="absolute top-1 -right-60 w-96 h-96 bg-purple-500/30 dark:bg-purple-400/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute top-1/2 -left-40 w-96 h-96 bg-purple-500/30 dark:bg-purple-400/10 rounded-full blur-3xl animate-pulse" />
       <Navbar navLinks={navItems} />
-      <CursorFollower />
 
       <main className="flex flex-col items-center px-6 py-24 z-10 relative">
         <motion.h2
