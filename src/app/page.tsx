@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import CursorFollower from './components/CursorFollower';
+import FeaturedGames from './components/FeaturedGames';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -28,6 +29,7 @@ export default function Home() {
       <FeaturesSection />
       <HowItWorks />
       <Testimonials />
+      <FeaturedGames />
       <PricingSection />
       <FAQ />
       <Footer />
