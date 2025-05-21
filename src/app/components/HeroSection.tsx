@@ -9,7 +9,7 @@ import { hero } from '../assets';
 
 const HeroSection = () => {
   const [typedText, setTypedText] = useState('');
-  const fullText = 'The Future of AI Assistant';
+  const fullText = 'Transform Learing with KridumAI';
   const typingSpeed = 100;
 
   useEffect(() => {
@@ -52,8 +52,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto md:mx-0 mb-10">
-            Empower your workflow with our revolutionary AI platform. Automate tasks,
-            generate content, and unlock insights with state-of-the-art artificial intelligence.
+            Supercharge your skills through interactive, AI-driven games. From mastering concepts to unlocking new levels of knowledge, discover a fun new way to learn with the power of KridumAI.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Moon, Sun, User } from "lucide-react";
 import Link from "next/link";
+import Logo from "./Logo";
 
 const Navbar = ({
   navLinks,
@@ -43,7 +44,7 @@ const Navbar = ({
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed -top-14 left-0 w-full z-50 transition-all duration-300 h-32 ${
         isScrolled
           ? "bg-white/80 dark:bg-black/80 shadow-md backdrop-blur-xl"
           : "bg-transparent"
@@ -53,12 +54,9 @@ const Navbar = ({
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">AI</span>
-            </div>
-            <span className="text-xl font-bold text-black dark:text-white font-space-grotesk">
-              KridumAI
-            </span>
+            <Logo
+              theme={darkMode ? "dark" : "light"}
+            />
           </Link>
 
           {/* Desktop Nav */}

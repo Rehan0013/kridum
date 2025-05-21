@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
@@ -10,10 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-800 via-purple-600 to-red-500 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">AI</span>
-              </div>
-              <span className="text-white font-space-grotesk font-bold text-xl">KridumAI</span>
+              <Logo theme="dark"/>
             </div>
             <p className="text-gray-400 mb-6">
               The future of AI assistants is here. Transforming workflows, one interaction at a time.

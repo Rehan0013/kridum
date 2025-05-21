@@ -13,8 +13,8 @@ import FeaturedGames from './components/FeaturedGames';
 const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'Featured Game', href: '#featured-game' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'About', href: '/about' },
+  { name: 'contact', href: '/contact' },
 ];
 
 export default function Home() {
